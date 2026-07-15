@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      تحميل تطبيق ماجد سبورت VIP
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&amp;family=Oswald:wght@700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      :root {
+            --gold: #c9a84c; 
+            --red: #FE2C55; 
+            --bg: #050505; 
+            --card: rgba(255, 255, 255, 0.03);
+            --text: #e8e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: &#39;Tajawal&#39;, sans-serif; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            background-image: radial-gradient(circle at 50% 0%, #2a0008 0%, #050505 50%);
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-icon { width: 40px; height: 40px; background: rgba(254, 44, 85, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--red); box-shadow: 0 0 15px rgba(254, 44, 85, 0.3); }
+        .logo-text { font-family: &#39;Oswald&#39;, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 2px; color: var(--text); }
+        .back-btn { color: var(--text); text-decoration: none; font-size: 14px; font-weight: 700; background: var(--card); padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .back-btn:hover { background: rgba(255,255,255,0.1); }
+
+        /* HERO SECTION */
+        .hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; }
+        .hero-badge { background: rgba(201, 168, 76, 0.1); color: var(--gold); padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-bottom: 20px; border: 1px solid rgba(201, 168, 76, 0.3); }
+        .hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 15px; line-height: 1.2; }
+        .hero h1 span { color: var(--red); }
+        .hero p { font-size: 18px; color: rgba(255,255,255,0.6); max-width: 600px; margin-bottom: 40px; line-height: 1.8; }
+
+        /* DOWNLOAD BUTTONS */
+        .download-box { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .btn { display: flex; align-items: center; gap: 12px; padding: 16px 32px; border-radius: 15px; font-size: 18px; font-weight: 700; text-decoration: none; transition: 0.3s; }
+        .btn-primary { 
+            background: var(--red); 
+            color: #fff; 
+            box-shadow: 0 10px 30px rgba(254, 44, 85, 0.4); 
+            animation: pulse 2s infinite;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(254, 44, 85, 0.6); }
+        .btn-secondary { background: var(--card); color: var(--text); border: 1px solid rgba(255,255,255,0.1); opacity: 0.6; cursor: not-allowed; }
+        .btn i { font-size: 24px; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(254, 44, 85, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(254, 44, 85, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(254, 44, 85, 0); }
+        }
+
+        /* FEATURES GRID */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; width: 100%; margin: 60px auto 40px; padding: 0 20px; }
+        .feature-card { background: var(--card); padding: 30px 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); text-align: center; backdrop-filter: blur(10px); transition: 0.3s; }
+        .feature-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-5px); }
+        .feature-icon { width: 60px; height: 60px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--gold); margin: 0 auto 15px; }
+        .feature-card h3 { font-size: 18px; margin-bottom: 10px; }
+        .feature-card p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .btn { width: 100%; justify-content: center; }
+            header { padding: 15px 20px; }
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo">      <div class="logo-icon">
+        <i class="fas fa-futbol"></i>
+      </div>
+      <div class="logo-text">
+        MAROKI SPORT
+      </div>
+</a>
+      <a href="index.html" class="back-btn">      العودة للموقع
+      <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>
+</a>
+    </header>
+    <main class="hero">
+      <div class="hero-badge">
+        <i class="fas fa-star" style="margin-left: 5px;"></i>
+        الإصدار الرسمي V1.0
+      </div>
+      <h1>
+        تابع أقوى المباريات مع تطبيق
+        <br />
+        <span>        ماروكي سبورت  VIP
+</span>
+      </h1>
+      <p>
+        تجربة سينمائية خالية من التقطيع، جودة تصل إلى 1080p بمعدل 60 إطار في الثانية، ودردشة تفاعلية مباشرة مع آلاف المشجعين. متوفر الآن لأجهزة الأندرويد.
+      </p>
+      <div class="download-box">
+        <a href="MajedSport_VIP.apk" class="btn btn-primary" download="">        <i class="fab fa-android"></i>
+        <div>
+          <div style="font-size: 12px; font-weight: 400; text-align: right; opacity: 0.8;">
+            تحميل مباشر للنسخة
+          </div>
+          <div>
+            Android (APK)
+          </div>
+        </div>
+</a>
+        <div class="btn btn-secondary">
+          <i class="fab fa-google-play"></i>
+          <div>
+            <div style="font-size: 12px; font-weight: 400; text-align: right;">
+              قريباً جداً على
+            </div>
+            <div>
+              Google Play
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <section class="features">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>
+          بدون تقطيع (60 FPS)
+        </h3>
+        <p>
+          سيرفرات مخصصة تضمن لك مشاهدة سلسة جداً للكرة السريعة بدون أي تأخير.
+        </p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-comments"></i>
+        </div>
+        <h3>
+          دردشة حية تفاعلية
+        </h3>
+        <p>
+          شارك حماسك مع آلاف المشجعين في شات مباشر وموثق بأحدث التقنيات.
+        </p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-bell"></i>
+        </div>
+        <h3>
+          تنبيهات المباريات
+        </h3>
+        <p>
+          إشعارات فورية تصل لهاتفك قبل بداية المباريات الكبرى بدقائق.
+        </p>
+      </div>
+    </section>
+  </body>
+  </html>
+  
