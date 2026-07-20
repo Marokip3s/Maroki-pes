@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Matches - Marokip3s Admin</title>
+
+<link rel="stylesheet" href="css/matches.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        <h2>⚽ Marokip3s</h2>
+    </div>
+
+    <ul>
+
+        <li><a href="dashboard.html">🏠 Dashboard</a></li>
+        <li class="active"><a href="matches.html">⚽ Matches</a></li>
+        <li><a href="servers.html">🖥 Servers</a></li>
+        <li><a href="competitions.html">🏆 Competitions</a></li>
+        <li><a href="teams.html">👥 Teams</a></li>
+        <li><a href="settings.html">⚙ Settings</a></li>
+        <li><a href="index.html">🚪 Logout</a></li>
+
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+
+        <h1>Matches</h1>
+
+        <div class="actions">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search..."
+                onkeyup="searchMatches()"
+            >
+
+            <button
+                class="btn btn-primary"
+                onclick="openModal()">
+
+                + Add Match
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Home</th>
+                    <th>Away</th>
+                    <th>Competition</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="matches">
+            </tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- Match Modal -->
+
+<div class="modal" id="matchModal">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h2 id="modalTitle">Add Match</h2>
+
+<span class="close" onclick="closeModal()">&times;</span>
+
+</div>
+
+<div class="modal-body">
+
+<label>Competition</label>
+
+<select id="competition">
+
+    <option value="">
+        Select Competition
+    </option>
+
+</select>
+
+<label>Home Team</label>
+
+<select id="team1">
+
+    <option value="">
+        Select Home Team
+    </option>
+
+</select>
+
+<label>Away Team</label>
+
+<select id="team2">
+
+    <option value="">
+        Select Away Team
+    </option>
+
+</select>
+
+<label>Match Date</label>
+
+<input
+type="datetime-local"
+id="start_time">
+
+<label>Status</label>
+
+<select id="status">
+
+<option value="Upcoming">Upcoming</option>
+
+<option value="Live">Live</option>
+
+<option value="Finished">Finished</option>
+
+<option value="Postponed">Postponed</option>
+
+<option value="Cancelled">Cancelled</option>
+
+</select>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+class="btn btn-secondary"
+onclick="closeModal()">
+
+Cancel
+
+</button>
+
+<button
+class="btn btn-primary saveBtn"
+onclick="saveMatch()">
+
+Save Match
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+<!-- JavaScript -->
+
+<script src="js/matches.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Teams</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+background:#111827;
+color:#fff;
+font-family:Arial,sans-serif;
+margin:20px;
+}
+
+h1{
+margin-bottom:20px;
+}
+
+.toolbar{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+flex-wrap:wrap;
+}
+
+.toolbar input{
+flex:1;
+padding:10px;
+background:#1f2937;
+border:none;
+border-radius:6px;
+color:white;
+}
+
+.toolbar button{
+padding:10px 18px;
+border:none;
+border-radius:6px;
+background:#2563eb;
+color:white;
+cursor:pointer;
+}
+
+.toolbar button:hover{
+background:#1d4ed8;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:12px;
+border:1px solid #333;
+text-align:center;
+}
+
+th{
+background:#1f2937;
+}
+
+tr:nth-child(even){
+background:#18212d;
+}
+
+img{
+width:40px;
+height:40px;
+object-fit:contain;
+}
+
+.modal{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+justify-content:center;
+align-items:center;
+}
+
+.modal-content{
+background:#1f2937;
+padding:20px;
+border-radius:10px;
+width:450px;
+max-width:95%;
+}
+
+.modal-content input,
+.modal-content select{
+width:100%;
+padding:10px;
+margin:8px 0;
+background:#111827;
+border:1px solid #333;
+color:white;
+}
+
+.modal-actions{
+display:flex;
+justify-content:flex-end;
+gap:10px;
+margin-top:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>⚽ Teams Manager</h1>
+
+<div class="toolbar">
+
+<input
+id="search"
+type="text"
+placeholder="Search Team..."
+onkeyup="searchTeams()">
+
+<button id="addBtn">
+
+➕ Add Team
+
+</button>
+
+<button onclick="loadTeams()">
+
+🔄 Refresh
+
+</button>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Logo</th>
+<th>Name</th>
+<th>Competition</th>
+<th>Country</th>
+<th>Status</th>
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tbody">
+
+<tr>
+
+<td colspan="7">
+
+Loading...
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+  <!-- Team Modal -->
+
+<div
+id="teamModal"
+class="modal">
+
+<div class="modal-content">
+
+<h2 id="modalTitle">
+
+Add Team
+
+</h2>
+
+<select id="competition_id">
+
+<option value="">
+
+Select Competition
+
+</option>
+
+</select>
+
+<input
+id="name"
+type="text"
+placeholder="Team Name">
+
+<input
+id="logo"
+type="text"
+placeholder="Logo URL">
+
+<input
+id="country"
+type="text"
+placeholder="Country">
+
+<input
+id="sort_order"
+type="number"
+value="1"
+placeholder="Sort Order">
+
+<select id="enabled">
+
+<option value="1">
+
+Enabled
+
+</option>
+
+<option value="0">
+
+Disabled
+
+</option>
+
+</select>
+
+<div class="modal-actions">
+
+<button
+onclick="closeModal()">
+
+Cancel
+
+</button>
+
+<button
+id="saveBtn">
+
+Save Team
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/teams.js"></script>
+
+</body>
+
+</html>
