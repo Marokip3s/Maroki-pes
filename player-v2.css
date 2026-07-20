@@ -1,0 +1,802 @@
+/* ==========================================
+   MAROKIP3S PLAYER V2
+   PART 1
+   Modal + Container + Animation
+========================================== */
+
+.player-modal{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:16px;
+    background:rgba(5,8,15,.88);
+    backdrop-filter:blur(12px);
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .25s ease, visibility .25s ease;
+    z-index:99999;
+}
+
+.player-modal.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.player-container{
+    width:100%;
+    max-width:680px;
+    max-height:92vh;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+
+    background:#141b2d;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.55);
+
+    animation:playerShow .25s ease;
+}
+
+@keyframes playerShow{
+
+    from{
+
+        opacity:0;
+        transform:translateY(18px) scale(.96);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+/* ==========================================
+   PLAYER HEADER
+========================================== */
+
+.player-header{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:10px 14px;
+
+    background:#182230;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    min-height:58px;
+
+}
+
+.player-match{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    flex:1;
+
+    overflow:hidden;
+
+}
+
+.player-competition-logo{
+
+    width:40px;
+    height:40px;
+
+    object-fit:contain;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.05);
+
+    padding:4px;
+
+    flex-shrink:0;
+
+}
+
+.player-info{
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+
+}
+
+#playerTitle{
+
+    margin:0;
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    line-height:1.3;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+#playerSubtitle{
+
+    margin-top:4px;
+
+    color:#9fb3d4;
+
+    font-size:12px;
+
+    font-weight:500;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+.close-player{
+
+    width:34px;
+
+    height:34px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#ff4d5a;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.25s;
+
+    flex-shrink:0;
+
+}
+
+.close-player:hover{
+
+    background:#ff3148;
+
+    transform:rotate(90deg);
+
+}
+
+.close-player:active{
+
+    transform:scale(.92);
+
+}
+/* ==========================================
+   PLAYER VIDEO
+========================================== */
+
+.player-video{
+
+position:relative;
+
+background:#000;
+
+aspect-ratio:16/9;
+
+max-height:280px;
+
+overflow:hidden;
+
+}
+
+#videoPlayer,
+#iframePlayer{
+
+    width:100%;
+
+    height:100%;
+
+    border:none;
+
+    background:#000;
+
+    display:none;
+
+}
+
+#videoPlayer{
+
+    object-fit:contain;
+
+}
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.player-loading{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    background:rgba(0,0,0,.72);
+
+    backdrop-filter:blur(6px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.25s;
+
+    z-index:5;
+
+}
+
+.player-loading.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.spinner{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:50%;
+
+    border:4px solid rgba(255,255,255,.12);
+
+    border-top:4px solid #2F80ED;
+
+    animation:playerSpinner .8s linear infinite;
+
+}
+
+@keyframes playerSpinner{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+.player-loading span{
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    letter-spacing:.3px;
+
+}
+/* ==========================================
+   PLAYER ACTIONS
+========================================== */
+
+.player-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    padding:14px 16px;
+
+    background:#182230;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.player-actions button{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:#202c43;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:all .25s ease;
+
+    box-shadow:0 6px 14px rgba(0,0,0,.18);
+
+}
+
+.player-actions button:hover{
+
+    background:#2F80ED;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 22px rgba(47,128,237,.35);
+
+}
+
+.player-actions button:active{
+
+    transform:scale(.92);
+
+}
+
+.player-actions button svg{
+
+    width:20px;
+
+    height:20px;
+
+}
+
+.player-actions button.active{
+
+    background:#2F80ED;
+
+    color:#fff;
+
+}
+
+.player-actions button:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+    box-shadow:none;
+
+}
+/* ==========================================
+   SERVER LIST
+========================================== */
+
+.server-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    padding:16px;
+
+    overflow-y:auto;
+
+    max-height:260px;
+
+    background:#141b2d;
+
+}
+
+.server-item{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:14px;
+
+    padding:10px 14px;
+
+    background:#1b2236;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+
+    min-height:52px;
+
+}
+
+.server-item:hover{
+
+    background:#24304a;
+
+    border-color:#2F80ED;
+
+    transform:translateY(-2px);
+
+}
+
+.server-item.active{
+
+    background:linear-gradient(135deg,#2F80ED,#1B5FC9);
+
+    border-color:#58a6ff;
+
+    box-shadow:0 10px 25px rgba(47,128,237,.35);
+
+}
+
+.server-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.server-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.08);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+
+    color:#fff;
+
+    flex-shrink:0;
+
+}
+
+.server-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.server-item span{
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+.server-item small{
+
+    margin-top:4px;
+
+    color:#b7c4d6;
+
+    font-size:12px;
+
+}
+
+.server-item.active span,
+
+.server-item.active small{
+
+    color:#fff;
+
+}
+
+.server-status{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#00d26a;
+
+    box-shadow:0 0 10px rgba(0,210,106,.6);
+
+    flex-shrink:0;
+
+}
+
+.server-item.offline .server-status{
+
+    background:#ff4d5a;
+
+    box-shadow:0 0 10px rgba(255,77,90,.6);
+
+}
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+.player-modal{
+
+padding:8px;
+
+}
+
+.player-container{
+
+max-width:100%;
+
+max-height:96vh;
+
+border-radius:16px;
+
+}
+
+.player-header{
+
+padding:12px;
+
+}
+
+.player-match{
+
+gap:10px;
+
+}
+
+.player-competition-logo{
+
+width:34px;
+
+height:34px;
+
+}
+
+#playerTitle{
+
+font-size:16px;
+
+}
+
+#playerSubtitle{
+
+font-size:11px;
+
+}
+
+.close-player{
+
+width:38px;
+
+height:38px;
+
+font-size:16px;
+
+}
+
+.player-actions{
+
+padding:12px;
+
+gap:10px;
+
+flex-wrap:wrap;
+
+}
+
+.player-actions button{
+
+width:46px;
+
+height:46px;
+
+font-size:16px;
+
+border-radius:12px;
+
+}
+
+.server-list{
+
+padding:12px;
+
+gap:10px;
+
+max-height:220px;
+
+}
+
+.server-item{
+
+padding:12px;
+
+border-radius:14px;
+
+}
+
+.server-icon{
+
+width:36px;
+
+height:36px;
+
+font-size:16px;
+
+}
+
+.server-item span{
+
+font-size:15px;
+
+}
+
+.server-item small{
+
+font-size:11px;
+
+}
+
+}
+
+/* ==========================================
+SCROLLBAR
+========================================== */
+
+.server-list::-webkit-scrollbar{
+
+width:6px;
+
+}
+
+.server-list::-webkit-scrollbar-track{
+
+background:#182230;
+
+border-radius:20px;
+
+}
+
+.server-list::-webkit-scrollbar-thumb{
+
+background:#2F80ED;
+
+border-radius:20px;
+
+}
+
+.server-list::-webkit-scrollbar-thumb:hover{
+
+background:#4b96ff;
+
+}
+
+/* ==========================================
+SMOOTH EFFECTS
+========================================== */
+
+.player-container,
+.server-item,
+.player-actions button,
+.close-player{
+
+transition:all .25s ease;
+
+}
+
+.player-actions button:focus,
+.close-player:focus{
+
+outline:none;
+
+box-shadow:0 0 0 3px rgba(47,128,237,.35);
+
+}
+
+/* ==========================================
+FADE ANIMATION
+========================================== */
+
+.fade-in{
+
+animation:fadeIn .3s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(10px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ==========================================
+END PLAYER V2
+========================================== */
